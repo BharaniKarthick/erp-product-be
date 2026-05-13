@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: erp-product-be
+    env: java
+    plan: starter
+    buildCommand: mvn clean package -DskipTests
+    startCommand: java -jar target/erp-product-be-1.0.0.jar
+    envVars:
+      - key: GROQ_API_KEY
+        scope: build,run
+      - key: DATABASE_URL
+        value: jdbc:postgresql://dpg-d82cdj7avr4c739lbf1g-a.oregon-postgres.render.com:5432/erp_db_sw8s
+      - key: DATABASE_USER
+        value: erp_user
+      - key: DATABASE_PASSWORD
+        scope: build,run
