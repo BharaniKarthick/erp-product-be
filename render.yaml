@@ -3,7 +3,7 @@ services:
     name: erp-product-be
     runtime: java
     plan: starter
-    buildCommand: mvn clean package -DskipTests
+    buildCommand: ./mvnw clean package -DskipTests
     startCommand: java -jar target/erp-product-be-1.0.0.jar
     envVars:
       - key: GROQ_API_KEY
