@@ -1,15 +1,11 @@
 services:
   - type: web
     name: erp-product-be
-    env: java
+    env: docker
     plan: starter
-    buildCommand: ./mvnw clean package -DskipTests
-    startCommand: java -jar target/erp-product-be-1.0.0.jar
     envVars:
       - key: GROQ_API_KEY
         sync: false
       - key: DATABASE_PASSWORD
         sync: false
-      - key: JAVA_VERSION
-        value: "17"
     autoDeploy: true

@@ -1,0 +1,15 @@
+target/
+.git/
+.gitignore
+.idea/
+.vscode/
+*.md
+*.sh
+frontend-docs/
+frontend-templates/
+docs/
+.mvn/
+mvnw
+mvnw.cmd
+system.properties
+render.yaml
