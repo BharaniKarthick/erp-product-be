@@ -1,7 +1,7 @@
 services:
   - type: web
     name: erp-product-be
-    runtime: java
+    env: java
     plan: starter
     buildCommand: ./mvnw clean package -DskipTests
     startCommand: java -jar target/erp-product-be-1.0.0.jar
@@ -10,4 +10,6 @@ services:
         sync: false
       - key: DATABASE_PASSWORD
         sync: false
+      - key: JAVA_VERSION
+        value: "17"
     autoDeploy: true
