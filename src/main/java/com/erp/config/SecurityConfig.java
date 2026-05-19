@@ -37,10 +37,12 @@ public class SecurityConfig {
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
-        configuration.setAllowedOrigins(Arrays.asList(
+        // Use allowedOriginPatterns to support Vercel preview URLs with wildcards
+        configuration.setAllowedOriginPatterns(Arrays.asList(
             "http://localhost:3000", 
             "http://localhost:5173",
-            "https://erp-product-fe.vercel.app"
+            "https://erp-product-fe.vercel.app",
+            "https://*.vercel.app"  // Allow all Vercel preview/branch deployments
         ));
         configuration.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"));
         configuration.setAllowedHeaders(List.of("*"));
